@@ -81,7 +81,7 @@ int main(void)
 	for( i = 0; i < n; i++ )
 		printf("\t\t%c\tcode:\t%s\n", codearr[ i ].litter, codearr[ i ].bit); //打印编码
 	putchar('\n');
-	printf("1.压缩到当前文件夹 2.压缩到其他文件夹\n");
+	printf("1.压缩到当前文件夹 2.压缩到其他文件夹(选择序号输入)\n");
 	scanf("%d", &i);
 	switch( i ){
 	case 1:	
@@ -108,11 +108,12 @@ int main(void)
 	fp = fopen( path, "r" );
 	for( j = 0; fgetc( fp ) != EOF; j++ )	//压缩后文件位长
 		;
-	printf("压缩成功,压缩率是 : %d / (%d * 8.0) = %f%%\n", j, i, j/(i*8.0)*100 );
+	printf("压缩成功,压缩文件路径为 : %s \n", path);
+	printf("压缩率是 : %d / (%d * 8.0) = %f%%\n", j, i, j/(i*8.0)*100 );
 	fclose( fp );
 	fp = fopen( path, "r");
 	printf("\n解压压缩文件");
-	printf("\n1.解压到当前文件夹 2.解压到其他文件夹\n");
+	printf("\n1.解压到当前文件夹 2.解压到其他文件夹(选择序号输入)\n");
 	scanf("%d", &i);
 	switch( i ){
 	case 1:	
@@ -138,6 +139,7 @@ int main(void)
 			i = -1;
 		}
 	}
+	printf("解压成功,解压文件路径为%s\n", path);
 	fclose( fp );
 	fclose( pf );
 	return 0;
